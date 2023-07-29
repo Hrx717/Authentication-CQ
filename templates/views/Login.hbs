@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{>Head}}
+<body>
+    {{>Navbar}}
+
+    {{!-- login form --}}
+    <div class="container">
+        <div class="box">
+            <h2>Login</h2>
+            <form action="/auth/login" method="post">
+            <div class="input-fields">
+                {{#if err}}
+                        <p class="show-error">{{err}}</p>
+                {{/if}}
+                <label>Email: </label>
+                <input type="email" name="email" placeholder="Email" required>
+                <label>Password: </label>
+                <input type="password" name="password" placeholder="password" required>
+            </div>
+
+            <div class="buttons">
+                <button type="submit">Login</button>
+            </div>
+            <label style="margin-left: 10px;">Not registerd? <a href="/auth/signup">signup</a></label>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

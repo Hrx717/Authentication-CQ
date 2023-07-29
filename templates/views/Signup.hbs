@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{>Head}}
+<body>
+    {{>Navbar}}
+
+    {{!-- signup form --}}
+    <div class="container">
+        <div class="box">
+            <h2>Create Account</h2>
+            <form action="/auth/signup" method="post">
+                <div class="input-fields">
+                    {{#if err}}
+                        <p class="show-error">{{err}}</p>
+                    {{/if}}
+                    <label>First Name: </label>
+                    <input type="text" name="firstName" placeholder="First name" required>
+                    <label>Last Name: </label>
+                    <input type="text" name="lastName" placeholder="Last name">
+                    <label>Email: </label>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <label>Password: </label>
+                    <input type="password" name="password" placeholder="password" required>
+                    <label>Confirm Password: </label>
+                    <input type="password" name="cPassword" placeholder="Confirm Password" required>
+                </div>
+
+                <div class="buttons">
+                        <button type="submit">Submit</button>
+                        <button type="reset">Reset</button>
+                </div>
+                <label style="margin-left: 10px;">Already have account? <a href="/auth/login">login</a></label>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
