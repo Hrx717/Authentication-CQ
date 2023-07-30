@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{>Head}}
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/auth/data">Data</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <h2 style="text-align: center; margin: 15px 0">Users Data</h2>
+    <hr><hr>
+    {{#each Data}}
+            <p style="margin: 8px 0; text-align: center;font-style:italic;">{{this.firstName}},  {{this.email}}</p>
+            <hr>
+    {{/each}}
+</body>
+</html>

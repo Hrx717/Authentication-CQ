@@ -2,7 +2,6 @@ const express = require("express");
 const fs = require('fs');
 var session = require('express-session')
 const hbs = require('hbs');
-const { emit } = require("process");
 
 const app = express();
 const PORT = process.env.PORT || 7000;
@@ -55,6 +54,14 @@ app.get("/auth/logout", (req,res) => {
     req.session.isLoggedIn = false;
     req.session.username = undefined;
     res.redirect("/auth/login");
+});
+
+app.get("/auth/data", (req,res) => {
+    if(!req.session.isLoggedIn) {
+        res.redirect('/auth/login');
+        return;
+    }
+    res.render('Data', {Data: readUsersFile});
 });
 
 // post routes
